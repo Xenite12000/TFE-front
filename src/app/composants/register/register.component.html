@@ -1,0 +1,39 @@
+<div class="register">
+    <div class="title-register">
+        <div>Créer votre compte</div>
+    </div>
+    <div class="form-register">
+        <form [formGroup]="RegisterForm" (ngSubmit)="onSubmit()">
+  
+            <div>Prénom</div>
+            <input type="text" id="username" formControlName="username" placeholder="prénom" required/>
+
+            <div>Nom de famille</div>
+            <input type="text" id="lastname" formControlName="lastname" placeholder="nom de famille" required/>
+
+            <div>Adresse mail</div>
+            <input type="email" id="email" formControlName="email" placeholder="email" required/>
+
+            <div>N° de téléphone</div>
+            <input type="text" id="tel_number" formControlName="tel_number" placeholder="n°" required/>
+
+            <div>Club</div>
+            <select id="club" formControlName="club" required>
+                <option *ngFor="let club of clubs" [value]="club.id">{{ club.name }}</option>
+            </select>
+
+            <div>Mot de passe</div>
+            <input type="password" id="password" formControlName="password" placeholder="mot de passe" required />
+
+            <div>Confirmation de mot de passe</div>
+            <input type="password" id="confirmation" formControlName="confirmation" placeholder="confirmation" required />
+
+            <div *ngIf="confirmation" class="error">Mot de passe et confirmation non correspondante</div>
+        
+            <div class="buttons-form-register">
+                <button type="submit">S'enregistrer</button>
+                <button ><a [routerLink]="['/login']">Annuler</a></button>
+            </div>
+        </form>
+    </div>
+</div>

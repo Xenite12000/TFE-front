@@ -1,0 +1,422 @@
+body {
+    margin:0;
+    background-image: url('../../../src/assets/img/8715317.jpg');
+}
+
+.main {
+    font-family: Arial, Helvetica, sans-serif;
+    color:black;
+    font-size: 1.2rem;
+    margin-bottom: 100px;
+}
+
+a {
+    text-decoration: none;
+    color:black;
+}
+
+button {
+    background-color: #D0C2CF;
+    height: 28px;
+}
+
+.error {
+    color:#FF0000;
+}
+
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 200px;
+    height: 200px;
+    .icone-loading {
+        font-size: 100px;
+    }
+}
+
+.header {
+    z-index: 3;
+    position: fixed;
+    width:100%;
+    bottom:0;
+    background-color: #D9D9D9;
+    padding-top:10px;
+    .menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding:10px;
+    }
+    .element-header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    background-color: 	#F28930;
+    border-radius: 20px;
+    margin:140px 32px;
+    padding-bottom: 20px;
+    font-size: 2rem;
+    .title-login {
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        .titre-title {
+            justify-content: center;
+            align-items: center;
+        }
+        .validator-title-login {
+            font-size: 1.2rem;
+            color: #FF0000;
+            background-color: #F6D3BD;
+            padding:4px;
+            margin-top: 8px;
+            border-radius: 5px;
+        }
+    }
+    .form-login {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .buttons-form-login {
+            display: flex;
+            flex-direction: column;
+        }
+        .validator-form-login {
+            font-size: 1.2rem;
+            color: #FF0000;
+            background-color: #F6D3BD;
+            padding:4px;
+            margin: 8px;
+            border-radius: 5px;
+        }
+    }
+
+    input {
+        width: 250px;
+        height: 32px;
+        font-size: 16px;
+        margin: 20px 0;
+    }
+    button {
+        width: 250px;
+        height: 32px;
+        font-size: 16px;
+        margin: 10px 0;
+        background-color: #D0C2CF;
+    }
+}
+
+.register {
+    display: flex;
+    flex-direction: column;
+    background-color: 	#F28930;
+    border-radius: 20px;
+    margin:24px;
+    padding-bottom: 20px;
+    font-size: 1.4rem;
+    .title-register {
+        display: flex;
+        margin: 10px;
+        justify-content: center;
+        font-weight: bold;
+    }
+    .form-register {
+        margin: 10px 30px;
+        .buttons-form-register {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    input {
+        width: 250px;
+        height: 26px;
+        font-size: 16px;
+        margin: 15px 0;
+    }
+    button {
+        width: 250px;
+        height: 32px;
+        font-size: 16px;
+        margin: 10px 0;
+        background-color: #D0C2CF;
+    }
+    select {
+        width: 250px;
+        height: 32px;
+        font-size: 16px;
+        margin: 10px 0;
+    }
+}
+
+.accueil {
+    margin-left: 10px;
+    .title-accueil {
+        font-weight: bold;
+        height: 60px;
+        color:#FF6500;
+        font-size: 1.7rem;
+        margin: 20px 0;
+    }
+    .comm-accueil {
+        font-size: 1.3rem;
+        margin: 20px 10px 20px 0;
+        .club-comm {
+            font-weight: bold;
+        }
+        .list-comm {
+            background-color: #CCCCCC;
+            padding:20px;
+            border-radius: 5px;
+            height: 70px;
+            margin: 20px 0;
+            .titre-comm {
+                font-weight: bold;
+            }
+        }
+    }
+    img {
+        width: 100px;
+        height: 100px;
+    }
+    button {
+        height: 32px;
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
+    .error {
+        color:#FF0000;
+    }
+    .add-com {
+        margin:30px;
+        .title-add {
+            margin-bottom:20px;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input {
+            height: 28px;
+            font-size: 1.1rem;
+        }
+        button {
+            height: 28px;
+            font-size: 1.1rem;
+            margin-top: 20px;
+        }
+        textarea {
+            height: 64px;
+            font-size: 1.1rem;
+        }
+        select {
+            height: 32px;
+            font-size: 1.1rem;
+        }
+    }
+}
+
+.calendar {
+    margin:10px;
+    font-size: 1.2rem;
+    .title-calendar {
+        font-weight: bold;
+        height: 60px;
+        font-size: 1.8rem;
+        margin: 10px 0;
+    }
+    .full-calendar {
+        height:540px;
+        button {
+            height: 50px;
+            margin-bottom:8px;
+        }
+    }
+    .fc .fc-toolbar-chunk {
+        display: flex;
+        flex-direction: column;
+    }
+    .presence-calendar {
+        margin:20px;
+    }
+    button {
+        height:28px;
+        font-size: 1rem;
+        margin: 4px;
+    }
+    input {
+        height: 16px;
+        width: 16px;
+        margin:10px;
+    }
+      
+}
+
+.eleves {
+    font-size: 1.5rem;
+    .title-eleves {
+        font-weight: bold;
+        height: 50px;
+        font-size: 1.8rem;
+        margin: 10px 10px;
+    }
+    .search-eleves {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin:30px 0;
+        input {
+            width:250px;
+            height: 40px;
+            font-size: 1.2rem;
+        }
+        button {
+            background-color: #D0C2CF;
+            width: 40px;
+            height: 40px;
+        }
+    }
+    .user-eleves {
+        display: flex;
+        flex-direction: row;
+        height:40px;
+        align-items: center;
+        font-size: 1.4rem;
+        padding: 0 16px;
+        border: #A6A6A6 solid 2px;
+        .firstname-user {
+            width:130px;
+        }
+        .lastname-user {
+            width:130px;
+        }
+        .seance-user {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width:90px;
+        }
+    }
+    .select-eleves {
+        margin: 100px 10px 10px 10px;
+        .title-select {
+            margin-bottom:20px;
+            font-weight: bold;
+        }
+        .eleve-select {
+            display: flex;
+            flex-direction: column;
+            height: 300px;
+            justify-content: space-around;
+        }
+        .form-select {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            input {
+                height: 40px;
+                font-size: 1.3rem;
+                margin-right: 50px;
+            }
+        }
+        .buttons-select {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            button {
+                height: 50px;
+                font-size: 1.3rem;
+            }
+        }
+        
+    }
+}
+
+.stat {
+    margin:20px;
+    .title-stat {
+        font-weight: bold;
+        height: 50px;
+        font-size: 1.8rem;
+        margin: 10px 10px;
+    }
+    .form-stat {
+        margin: 10px;
+        font-weight: bold;
+        font-size: 1.3rem;
+        select {
+            height: 30px;
+            width: 60px;
+            font-size: 1rem;
+        }
+        button {
+            height: 30px;
+            font-size: 1.1rem;
+            margin-left:10px;
+        }
+    }
+    .titre-stat {
+        font-weight: bold;
+        margin: 10px;
+    }
+}
+
+.profil {
+    margin:100px 10px 10px 10px;
+    font-size: 1.3rem;
+    .name-profil {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom:20px;
+    }
+    .error {
+        color: #FF0000;
+    }
+    .info-profil {
+        margin: 30px 0;
+    }
+    button {
+        margin: 10px 0;
+        height: 28px;
+        font-size: 1.1rem;
+    }
+    select {
+        margin: 10px 0;
+        height: 28px;
+        font-size: 1.1rem;
+        margin-right: 8px;
+    }
+    input {
+        margin: 10px 0;
+        height: 28px;
+        font-size: 1.1rem;
+        width:85%;
+    }
+}
+
+.inventaire {
+    margin: 20px;
+    font-size: 1.3rem;
+    .title-inventaire {
+        font-weight: bold;
+        font-size: 1.7rem;
+        margin: 30px 0;
+    }
+}

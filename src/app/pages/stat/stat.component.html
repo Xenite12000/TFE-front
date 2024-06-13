@@ -1,0 +1,46 @@
+<div *ngIf="!loading" class="stat">
+    <div class="title-stat">Statistiques</div>
+    <div class="form-stat">
+        <div>Choisir l'année :</div>
+        <form (ngSubmit)="StatAn()" [formGroup]="StatForm">
+            <select id="annee" formControlName="annee">
+                <option value="{{+auj.split('-')[0] - 2}}">{{+auj.split('-')[0] - 2}}</option>
+                <option value="{{+auj.split('-')[0] - 1}}">{{+auj.split('-')[0] - 1}}</option>
+                <option value="{{+auj.split('-')[0]}}">{{+auj.split('-')[0]}}</option>
+                <option value="{{+auj.split('-')[0] + 1}}">{{+auj.split('-')[0] + 1}}</option>
+                <option value="{{+auj.split('-')[0] + 2}}">{{+auj.split('-')[0] + 2}}</option>
+            </select>
+            <button type="submit">Voir les stats</button>
+            <button (click)="generateExcelFile()">Export Excel <i class="fa-solid fa-file-excel"></i></button>
+        </form>
+    </div>
+    <div>
+        <div>
+            <div class="titre-stat">Statistiques de l'année {{year}}</div>
+            <div class="titre-stat">Élèves :</div>
+            <div *ngFor="let user of users_club">
+                {{ user.firstname + ' ' + user.lastname + ' présent ' + user.nb_presence + ' fois' }}
+            </div>
+            <div class="titre-stat">Décompte en fonction des mois</div>
+            <div>
+                <div>Janvier :   {{ months[0] }}</div>
+                <div>Février :   {{ months[1] }}</div>
+                <div>Mars :      {{ months[2] }}</div>
+                <div>Avril :     {{ months[3] }}</div>
+                <div>Mai :       {{ months[4] }}</div>
+                <div>Juin :      {{ months[5] }}</div>
+                <div>Juillet :   {{ months[6] }}</div>
+                <div>Août :      {{ months[7] }}</div>
+                <div>Septembre : {{ months[8] }}</div>
+                <div>Octobre :   {{ months[9] }}</div>
+                <div>Novembre :  {{ months[10] }}</div>
+                <div>Décembre :  {{ months[11] }}</div>
+            </div>
+            <div class="titre-stat">Total de l'année : {{ total }}</div>
+        </div>
+    </div>
+
+</div>
+<div *ngIf="loading">
+    <app-loading></app-loading>
+</div>

@@ -1,0 +1,9 @@
+<div *ngIf="!loading" class="inventaire">
+    <div>
+        <div class="title-inventaire">Inventaire matériel</div>
+        <div>Club de {{ club_complete.name }}</div>
+    </div>
+</div>
+<div *ngIf="loading">
+    <app-loading></app-loading>
+</div>

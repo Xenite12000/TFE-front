@@ -1,0 +1,51 @@
+<div class="accueil" *ngIf="!loading">
+    <div *ngIf="!addcom">
+        <div class="title-accueil">
+            <div>
+                <div>Bienvenue {{ this.user_complete.firstname + ' ' + this.user_complete.lastname }}</div>
+            </div>
+        </div>
+        <div class="comm-accueil">
+            <button (click)="addcom = true">Écrire une communication</button>
+            <div class="club-comm">Informations utiles de {{ this.club_complete.name }}</div>
+            <div>
+                <div *ngFor="let communication of communications_club.slice(-2)" class="list-comm">
+                    <div class="titre-comm">{{ communication.title + ' le ' + communication.for_day.split('T')[0].split('-')[2] + '/' + communication.for_day.split('T')[0].split('-')[1] + '/' + communication.for_day.split('T')[0].split('-')[0] }}</div>
+                    <div>{{ communication.message }}</div>
+                </div>
+            </div>
+            <div class="club-comm">Récapitulatif de {{ this.club_complete.name }}</div>
+            <div>
+                <div *ngFor="let communication of communications_recap.slice(-2)" class="list-comm">
+                    <div class="titre-comm">{{ communication.title + ' le ' + communication.for_day.split('T')[0].split('-')[2] + '/' + communication.for_day.split('T')[0].split('-')[1] + '/' + communication.for_day.split('T')[0].split('-')[0] }}</div>
+                    <div>{{ communication.message }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="addcom" class="add-com">
+        <div>
+            <div class="title-add">Ajouter une communication</div>
+            <form [formGroup]="comForm" (ngSubmit)="addCommunication()">
+                <div>Titre</div>
+                <input type="text" formControlName="title">
+                <div>Message</div>
+                <textarea formControlName="message"></textarea>
+                <div>Type de communication</div>
+                <select formControlName="type_com">
+                    <option value="0">Informations utiles</option>
+                    <option value="1">Récapitulatif</option>
+                </select>
+                <div>Sélectionnez la date concernée</div>
+                <input type="date" formControlName="for_day">
+                <button type="submit">Ajouter</button>
+                <div *ngIf="erroraddcom" class="error">Titre ou type de communication manquant</div>
+                <button (click)="addcom = false">Annuler</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+<div *ngIf="loading">
+    <app-loading></app-loading>
+</div>

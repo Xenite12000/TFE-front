@@ -1,0 +1,24 @@
+<div class="login">
+    <div class="title-login">
+        <div class="titre-title">Bonjour ! Bienvenue dans votre application sportive</div>
+        <div *ngIf="!connect_valid" class="validator-title-login">Mot de passe ou adresse mail incorrect</div>
+    </div>
+    <div class="form-login">
+        <form [formGroup]="loginForm" (ngSubmit)="connect()">
+
+
+            <div>Adresse mail</div>
+            <input type="email" id="email" formControlName="email" placeholder="email"/>
+            <div *ngIf="!mail_valid" class="validator-form-login">Format mail invalide</div>
+  
+            <div>Mot de passe</div>
+            <input type="password" id="password" formControlName="password" placeholder="mot de passe"/>
+            <div *ngIf="!password_valid" class="validator-form-login">Mot de passe requis</div>
+        
+            <div class="buttons-form-login">
+                <button type="submit">Connexion</button>
+                <button ><a [routerLink]="['/register']">Créer un compte</a></button>
+            </div>
+        </form>
+    </div>
+</div>

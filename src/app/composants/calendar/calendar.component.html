@@ -1,0 +1,58 @@
+<div *ngIf="!loading" class="calendar">
+    <div *ngIf="!presence && !addlessons && !care_users">
+        <div class="title-calendar">Agenda des séances</div>
+        <full-calendar [options]="calendarOptions" class="full-calendar"></full-calendar>
+        <div *ngIf="date_click" class="presence-calendar">
+            <div>Cours du {{ day_clicked.day + '/' + day_clicked.month + '/' + day_clicked.year }} :</div>
+            <div *ngFor="let info of day_selected">
+                <div>Cours à {{ info.date_of.split('T')[1].split('+')[0].split(':')[0] + 'h' + info.date_of.split('T')[1].split('+')[0].split(':')[1] }}</div>
+                <button (click)="presencesClick(info)">Liste des présences</button>
+            </div>
+            <button (click)="addlessons = true ; erroraddlessons = false">Ajouter des cours</button>
+        </div>
+    </div>
+
+    <div *ngIf="presence">
+        <div>Liste des élèves du cours de {{ lesson_selected }}</div>
+        <div *ngFor="let eleve of users_presence">
+            <div>{{ eleve.firstname + ' ' + eleve.lastname }} <input type="checkbox"  [(ngModel)]=eleve.present></div>
+        </div>
+        <button (click)="ValidatePresence()">Valider les présences</button>
+        <button (click)="presence = false">Annuler</button>
+    </div>
+
+    <div *ngIf="addlessons">
+        <div>
+            <div>Ajouter un ou des cours à partir de la date : {{ day_clicked.day + '/' + day_clicked.month + '/' + day_clicked.year }} :</div>
+            <form [formGroup]="addLessonForm" (ngSubmit)="createLesson()">
+                <div>Étendre ce cours sur plusieurs semaines ?</div>
+                <input type="number" formControlName="nbWeek">
+                <div>Quelle heure ?</div>
+                <input type="time" formControlName="hour">
+                <div>Type de cours</div>
+                <select formControlName="type_lesson">
+                    <option value=0 selected>Cours publique</option>
+                    <option value=1>Cours annulé</option>
+                    <option value=2>Cours caricatif</option>
+                    <option value=3>Cours privé</option>
+                </select>
+                <div *ngIf="erroraddlessons" style="color:#ff0000">Il manque l'heure ou le type de cours</div>
+                <button type="submit">Valider</button>
+            </form>
+            <button (click)="addlessons = false">Annuler</button>
+        </div>
+    </div>
+
+    <div *ngIf="care_users">
+        <div>
+            <div>Les utilisateurs suivant ont moins de 4 séances restantes :</div>
+            <div *ngFor="let user of users_low_seance">{{ user.firstname + ' ' + user.lastname }}</div>
+            <div>Texte pour prévenir le(s) prévenir :</div>
+            <div>Bonjour, vous n'avez plus beaucoup de séance veuillez penser a en prendre de nouvelles pour continuer à profiter de notre club !</div>
+        </div>
+        <button (click)="care_users = false">Terminer</button>
+    </div>
+</div>
+<div *ngIf="loading">
+    <app-loading></app-loading>
+</div>

@@ -1,0 +1,54 @@
+<div *ngIf="!loading" class="eleves">
+    <div *ngIf="!detail">
+        <div class="title-eleves">Liste et recherche d'élèves</div>
+        <div class="search-eleves">
+            <form [formGroup]="searchForm" (ngSubmit)="Searching()">
+                <input type="search" id="search" formControlName="search" placeholder="recherche"/>
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+
+        <div>
+            <div class="user-eleves">
+                <div class="firstname-user" style="font-weight: bold;">Prénom</div>
+                <div class="lastname-user" style="font-weight: bold;">Nom</div>
+                <div class="seance-user" style="font-weight: bold;">Séances</div>
+            </div>
+            <div *ngFor="let user of users" class="user-eleves" (click)="choixUser(user)">
+                <div class="firstname-user">{{ user.firstname }}</div>
+                <div class="lastname-user">{{ user.lastname }}</div>
+                <div class="seance-user">{{ user.seance_left }}</div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="detail" class="select-eleves">
+        <div>
+            <div class="title-select">Ajout de séances pour un élève</div>
+            <div class="eleve-select">
+                <div>Prénom : {{ user_to_show.firstname }}</div>
+                <div>Nom : {{ user_to_show.lastname }}</div>
+                <div>Mail : {{ user_to_show.mail }}</div>
+                <div>Téléphone : {{ user_to_show.tel_number }}</div>
+                <div>
+                    <div>Séances restantes : {{ user_to_show.seance_left }}</div>
+                </div>
+            </div>
+            <div class="buttons-select">
+                <div>Combien de séances voulez-vous ajouter</div>
+                <div class="form-select">
+                    <form [formGroup]="seanceForm" (ngSubmit)="AddSeances()">
+                        <input type="number" id="seance_number" name="seance_number" formControlName="seance_number" min="1" max="99">
+                        <button type="submit">Ajouter</button>
+                    </form>
+                </div>
+                <button (click)="this.detail = false">
+                    Retour
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="loading">
+    <app-loading></app-loading>
+</div>

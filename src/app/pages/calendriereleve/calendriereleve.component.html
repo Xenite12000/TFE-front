@@ -1,0 +1,16 @@
+<div *ngIf="!loading" class="calendar">
+    <div>
+        <div class="title-calendar">Agenda des séances</div>
+        <full-calendar [options]="calendarOptions" class="full-calendar"></full-calendar>
+        <div *ngIf="date_click" class="presence-calendar">
+            <div>Cours du {{ day_clicked.day + '/' + day_clicked.month + '/' + day_clicked.year }} :</div>
+            <div *ngFor="let info of day_selected">
+                <div>Cours à {{ info.date_of.split('T')[1].split('+')[0].split(':')[0] + 'h' + info.date_of.split('T')[1].split('+')[0].split(':')[1] }}</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div *ngIf="loading">
+    <app-loading></app-loading>
+</div>

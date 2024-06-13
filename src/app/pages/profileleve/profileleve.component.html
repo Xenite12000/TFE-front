@@ -1,0 +1,31 @@
+<div *ngIf="!loading" class="profil">
+    <div *ngIf="!modify">
+        <div>
+            <div class="name-profil">{{ user_complete.firstname + ' ' + user_complete.lastname }}</div>
+            <div class="info-profil">Mail : {{ user_complete.mail }}</div>
+            <div class="info-profil">N° de téléphone : {{ user_complete.tel_number }}</div>
+            <button (click)="modify = true">Changer mail ou numéro de téléphone</button>
+            <div>
+                <div>Changer de club</div>
+                <select>
+                    <option *ngFor="let club of clubs_list" value="{{ club.id }}">{{ club.name }}</option>
+                </select>
+                <button>Valider</button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="modify">
+        <div class="name-profil">{{ user_complete.firstname + ' ' + user_complete.lastname }}</div>
+        <form [formGroup]="changeUserForm" (ngSubmit)="changeUser()">
+            <input type="text" formControlName="mail" placeholder="{{ user_complete.mail }}">
+            <div class="error" *ngIf="formatmail">Format du mail incorrect</div>
+            <input type="text" formControlName="tel_number" placeholder="{{ user_complete.tel_number }}">
+            <div class="error" *ngIf="formatnumber">Format du numéro incorrect</div>
+            <button type="submit">Valider</button>
+        </form>
+        <button (click)="modify = false">Annuler</button>
+    </div>
+</div>
+<div *ngIf="loading">
+    <app-loading></app-loading>
+</div>

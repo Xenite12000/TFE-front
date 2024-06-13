@@ -1,0 +1,39 @@
+<div *ngIf="!loading">
+    <div *ngIf="admin">
+        <div *ngIf="page_selected==='accueil'">
+            <app-accueil></app-accueil>
+        </div>
+        <div *ngIf="page_selected==='calendrier'">
+            <app-calendrier></app-calendrier>
+        </div>
+        <div *ngIf="page_selected==='eleves'">
+            <app-eleves></app-eleves>
+        </div>
+        <div *ngIf="page_selected==='stat'">
+            <app-stat></app-stat>
+        </div>
+        <div *ngIf="page_selected==='inventaire'">
+            <app-inventaire></app-inventaire>
+        </div>
+        
+        <app-header (page_selected)="page_change($event)"></app-header>
+    </div>
+    <div *ngIf="!admin">
+        <div *ngIf="page_selected==='accueileleve'">
+            <app-accueileleve></app-accueileleve>
+        </div>
+        <div *ngIf="page_selected==='calendriereleve'">
+            <app-calendriereleve></app-calendriereleve>
+        </div>
+        <div  *ngIf="page_selected==='profileleve'">
+            <app-profileleve></app-profileleve>
+        </div>
+        <div *ngIf="page_selected==='stateleve'">
+            <app-stateleve></app-stateleve>
+        </div>
+        <app-headereleve (page_selected)="page_change($event)"></app-headereleve>
+    </div>
+</div>
+<div *ngIf="loading">
+    <app-loading></app-loading>
+</div>
