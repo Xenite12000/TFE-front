@@ -8,6 +8,7 @@ import { CalendarComponent } from '../../composants/calendar/calendar.component'
 import { LoadingComponent } from '../../composants/loading/loading.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
+import { QRCodeModule } from 'angularx-qrcode';
 
 
 
@@ -61,7 +62,7 @@ export class AccueilComponent implements OnInit {
   ) {
     const currentDate = new Date();
     this.today = currentDate.toISOString();
-    console.log(this.today)
+
   }
 
   ngOnInit(): void {

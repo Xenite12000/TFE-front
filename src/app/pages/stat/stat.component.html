@@ -7,8 +7,6 @@
                 <option value="{{+auj.split('-')[0] - 2}}">{{+auj.split('-')[0] - 2}}</option>
                 <option value="{{+auj.split('-')[0] - 1}}">{{+auj.split('-')[0] - 1}}</option>
                 <option value="{{+auj.split('-')[0]}}">{{+auj.split('-')[0]}}</option>
-                <option value="{{+auj.split('-')[0] + 1}}">{{+auj.split('-')[0] + 1}}</option>
-                <option value="{{+auj.split('-')[0] + 2}}">{{+auj.split('-')[0] + 2}}</option>
             </select>
             <button type="submit">Voir les stats</button>
             <button (click)="generateExcelFile()">Export Excel <i class="fa-solid fa-file-excel"></i></button>

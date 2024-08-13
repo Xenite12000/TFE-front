@@ -1,7 +1,10 @@
 <div *ngIf="!loading" class="profil">
-    <div *ngIf="!modify">
+    <div *ngIf="!modify && !qrcode">
         <div>
-            <div class="name-profil">{{ user_complete.firstname + ' ' + user_complete.lastname }}</div>
+            <div class="name-profil">
+                {{ user_complete.firstname + ' ' + user_complete.lastname }} 
+                <img class="badge" src="{{this.badge}}">
+            </div>
             <div class="info-profil">Mail : {{ user_complete.mail }}</div>
             <div class="info-profil">N° de téléphone : {{ user_complete.tel_number }}</div>
             <button (click)="modify = true">Changer mail ou numéro de téléphone</button>
@@ -13,7 +16,18 @@
                 <button>Valider</button>
             </div>
         </div>
+        <div>
+            <button (click)="qrcode = true">Afficher mon QR code</button>
+        </div>
     </div>
+    
+    <div *ngIf="qrcode" class="qrcode-profil">
+        <div style="text-align:center">
+            <qrcode [qrdata]="myAngularxQrCode" [width]="300" [errorCorrectionLevel]="'M'"></qrcode>
+        </div>
+        <button (click)="qrcode = false">Fermer</button>
+    </div>
+
     <div *ngIf="modify">
         <div class="name-profil">{{ user_complete.firstname + ' ' + user_complete.lastname }}</div>
         <form [formGroup]="changeUserForm" (ngSubmit)="changeUser()">

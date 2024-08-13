@@ -16,12 +16,17 @@ a {
 }
 
 button {
-    background-color: #D0C2CF;
+    background-color: #85C0F9;
     height: 28px;
 }
 
 .error {
     color:#FF0000;
+}
+
+.badge {
+    width:24px;
+    height: 24px;
 }
 
 .loading {
@@ -42,7 +47,7 @@ button {
     position: fixed;
     width:100%;
     bottom:0;
-    background-color: #D9D9D9;
+    background-color: #FFFFFF;
     padding-top:10px;
     .menu-header {
         display: flex;
@@ -116,7 +121,6 @@ button {
         height: 32px;
         font-size: 16px;
         margin: 10px 0;
-        background-color: #D0C2CF;
     }
 }
 
@@ -153,7 +157,6 @@ button {
         height: 32px;
         font-size: 16px;
         margin: 10px 0;
-        background-color: #D0C2CF;
     }
     select {
         width: 250px;
@@ -288,7 +291,6 @@ button {
             font-size: 1.2rem;
         }
         button {
-            background-color: #D0C2CF;
             width: 40px;
             height: 40px;
         }
@@ -386,6 +388,9 @@ button {
         font-weight: bold;
         margin-bottom:20px;
     }
+    .qrcode-profil {
+        text-align: center;
+    }
     .error {
         color: #FF0000;
     }
@@ -394,7 +399,7 @@ button {
     }
     button {
         margin: 10px 0;
-        height: 28px;
+        height: 32px;
         font-size: 1.1rem;
     }
     select {
@@ -413,10 +418,26 @@ button {
 
 .inventaire {
     margin: 20px;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     .title-inventaire {
         font-weight: bold;
         font-size: 1.7rem;
         margin: 30px 0;
+    }
+    .items-inventaire {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+    button {
+        margin: 10px 0;
+        height: 30px;
+        font-size: 1.1rem;
+    }
+    input {
+        margin: 10px 0;
+        height: 28px;
+        font-size: 1.1rem;
+        width:85%;
     }
 }
